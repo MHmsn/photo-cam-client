@@ -1,7 +1,16 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link, NavLink } from "react-router-dom";
+import { AllContext } from "../contexts/AllContextProvider";
 
 const Header = () => {
+  const {user, logOut} = useContext(AllContext);
+
+
+  const logOutHandle = () => {
+    logOut()
+    .then()
+    .catch(err => console.log(err))
+  }
   return (
     <div>
       <div className="navbar bg-base-100">
@@ -28,52 +37,29 @@ const Header = () => {
               className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
             >
               <li>
-                <NavLink>Services</NavLink>
+                <NavLink to='/services'>Services</NavLink>
               </li>
               <li>
-                <NavLink></NavLink>
+                <NavLink to='/blogs'>Blogs</NavLink>
               </li>
-              <li>
-                <Link>Login</Link>
-              </li>
+              {user?<li><NavLink to='/reviews'>My Reviews</NavLink></li>:<></>}
             </ul>
           </div>
-          <Link className="btn btn-ghost normal-case text-xl">daisyUI</Link>
+          <Link to='/' className="btn btn-ghost normal-case text-xl">daisyUI</Link>
         </div>
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal p-0">
-            <li>
-              <Link>Item 1</Link>
+            <li className="mx-3">
+              <NavLink to='/services'>Services</NavLink>
             </li>
-            <li tabIndex={0}>
-              <Link>
-                Parent
-                <svg
-                  className="fill-current"
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="20"
-                  height="20"
-                  viewBox="0 0 24 24"
-                >
-                  <path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z" />
-                </svg>
-              </Link>
-              <ul className="p-2">
-                <li>
-                  <Link>Submenu 1</Link>
-                </li>
-                <li>
-                  <Link>Submenu 2</Link>
-                </li>
-              </ul>
+            <li className="mx-3">
+              <NavLink to='/blogs'>Blogs</NavLink>
             </li>
-            <li>
-              <Link>Item 3</Link>
-            </li>
+            {user?<li className="mx-3"><NavLink to='/reviews'>My Reviews</NavLink></li>:<></>}
           </ul>
         </div>
         <div className="navbar-end">
-          <Link className="btn">Get started</Link>
+          {user?<><img src={user.photoURL} className=" rounded-full w-9 text-sm" alt={user.displayName} title={user.displayName}/><button onClick={logOutHandle} className="btn btn-ghost">Log Out</button></>:<Link to='/login'><button className="btn btn-ghost">Log In</button></Link>}
         </div>
       </div>
     </div>
