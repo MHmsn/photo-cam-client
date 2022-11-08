@@ -1,6 +1,9 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 
 const Blogs = () => {
+    useEffect( () => {
+        document.title = "blogs - Photo Cam"
+    },[])
     return (
         <div>
             <div className=' mt-24 text-white font-extrabold'>

@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import {  FaGoogle } from "react-icons/fa";
 import { Link, useNavigate, useLocation } from 'react-router-dom';
 import { GoogleAuthProvider } from 'firebase/auth';
@@ -13,6 +13,9 @@ const Login = () => {
   const googleProvider = new GoogleAuthProvider();
   const [error, setError] = useState(null);
 
+  useEffect( () => {
+    document.title = "Login - Photo Cam";
+},[])
 
     const loginHandle = (event) => {
         event.preventDefault();
