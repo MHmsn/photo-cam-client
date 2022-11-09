@@ -56,7 +56,7 @@ const Header = () => {
             <li className="mx-3">
               <NavLink to='/blogs'>Blogs</NavLink>
             </li>
-            {user?<li className="mx-3"><NavLink to='/reviews'>My Reviews</NavLink></li>:<></>}
+            {user?<><li className="mx-3"><NavLink to='/reviews'>My Reviews</NavLink></li><li className="mx-3"><NavLink to='/addservice'>Add Service</NavLink></li></>:<></>}
           </ul>
         </div>
         <div className="navbar-end">
