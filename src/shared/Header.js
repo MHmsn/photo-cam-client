@@ -46,7 +46,7 @@ const Header = () => {
               {user?<li><NavLink to='/reviews'>My Reviews</NavLink></li>:<></>}
             </ul>
           </div>
-          <Link to='/' className="btn btn-ghost normal-case text-xl"><img src={logo} className="max-h-full" alt=""/>PhotoCam</Link>
+          <Link to='/' className="btn btn-ghost normal-case text-xl"><img src={logo} className="max-h-full mr-2" alt=""/>PhotoCam</Link>
         </div>
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal p-0">
