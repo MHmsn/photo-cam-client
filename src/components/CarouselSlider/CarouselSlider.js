@@ -21,7 +21,7 @@ const CarouselSlider = () => {
             alt=""
           />
 
-          <div className="absolute flex flex-col items-center justify-end top-0 w-1/3 h-full bg-black bg-opacity-10 rounded-l-xl">
+          <div className="absolute flex flex-col items-center justify-center top-0 w-1/3 h-full bg-black bg-opacity-10 rounded-l-xl">
           
           <p className="hidden md:block md:text-3xl mb-9">
             Get Photography services at competitive prices.<br/>
@@ -37,9 +37,15 @@ const CarouselSlider = () => {
             className="rounded-xl"
             alt=""
           />
-          <p className="absolute left-0 bottom-0 h-full w-1/3 bg-black bg-opacity-10 p-20">
-            Legend 2
+          <div className="absolute flex flex-col items-center justify-center top-0 w-1/3 h-full bg-black bg-opacity-10 rounded-l-xl">
+          
+          <p className="hidden md:block md:text-3xl mb-9">
+            Get Photography services at competitive prices.<br/>
           </p>
+          <p className="md:hidden mb-4 text-xl">PhotoCam</p>
+          <Link to='/services'><button className="btn btn-neutral w-20 mb-3">Get started</button></Link>
+          
+          </div>
         </div>
         <div>
           <img
@@ -47,9 +53,15 @@ const CarouselSlider = () => {
             className="rounded-xl"
             alt=""
           />
-          <p className="absolute left-0 bottom-0 h-full w-1/3 bg-black bg-opacity-10 p-20">
-            Legend 3
+          <div className="absolute flex flex-col items-center justify-center top-0 w-1/3 h-full bg-black bg-opacity-10 rounded-l-xl">
+          
+          <p className="hidden md:block md:text-3xl mb-9">
+            Get Photography services at competitive prices.<br/>
           </p>
+          <p className="md:hidden mb-4 text-xl">PhotoCam</p>
+          <Link to='/services'><button className="btn btn-neutral w-20 mb-3">Get started</button></Link>
+          
+          </div>
         </div>
       </Carousel>
     </div>

@@ -18,6 +18,7 @@ const Services = () => {
     },[])
   return (
     <div className="min-h-screen">
+    <h2 className="text-3xl my-10">These are the services that I provide</h2>
       <div className={loading?'block':'hidden'}>
       <ClipLoader color="red" />
       </div>

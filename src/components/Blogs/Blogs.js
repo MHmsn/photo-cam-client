@@ -1,5 +1,7 @@
 import React, { useEffect } from "react";
 
+//blog section
+
 const Blogs = () => {
   useEffect(() => {
     document.title = "blogs - Photo Cam";
@@ -14,13 +16,7 @@ const Blogs = () => {
           </div>
           <div className="collapse-content bg-slate-900">
             <p className="pt-4 font-bold">
-              cors is cross-origin-resource-sharing. Usually when we deploy API
-              with data from database, we cannot get the data from another
-              device or platform because of security measures for that data.
-              cors allows us to relax this security and get the data through
-              fetch API. As a result, any origins can get access to that data.
-              we can use it by npm install cors in the command line and then
-              using require function and use function in the index.js file.{" "}
+              SQL databases are table based, but NoSQL databases are mostly object or key-value based. So SQL is better for structured data like tables. While NoSQL databases are better for unstructured data like JSON. Also, SQL databases are vertically scalable but NoSQL databases are horizontally scalable.
             </p>
           </div>
         </div>
@@ -31,12 +27,7 @@ const Blogs = () => {
           </div>
           <div className="collapse-content bg-slate-900">
             <p className="pt-4 font-bold">
-              firebase is a tool which we can use for implementing different
-              types of authentication systems in a website. We can also use it
-              for deploying our web-app. It also has various other features to
-              add to our web-app. It helps us to manage our project well. It
-              also has a cloud database. We can use Parse as alternative to
-              Firebase.{" "}
+              JWT stands for JSON Web Token. It helps to encrypt the user data so that the data does not fall into the wrong hands. Also, it issues a token for authentication, which can be decrypted and used for authentication purposes. The token can be stored on local storage but it is not recommended. it is mostly stored on http only cookie. this token can be sent with API and then decoded to authenticate the user. 
             </p>
           </div>
         </div>
@@ -47,12 +38,7 @@ const Blogs = () => {
           </div>
           <div className="collapse-content bg-slate-900">
             <p className="pt-4 font-bold">
-              Private route is basically just a route which is designed to check
-              the authentication of user before displaying the content of a
-              route. If we have any route inside the privateRoute as children we
-              can check inside the privateRoute if there is any user logged in.
-              if there is a user the child component will be shown, otherwise
-              will be navigated to the login page.
+              JavaScript is a simple scripting language which is used for creating interactive web pages. While node.js is a JavaScript runtime environment. Usually JavaScript can run only in the browser. but with node.js, now javascript code can be executed outside of the browser as well. JavaScript is used for frontend web development while Node.js is used for backend web development in the server side. 
             </p>
           </div>
         </div>
@@ -63,13 +49,7 @@ const Blogs = () => {
           </div>
           <div className="collapse-content bg-slate-900">
             <p className="pt-4 font-bold">
-              Node is a JavaScript Runtime software that allows us to directly
-              run JavaScript code in the terminal, without the need of a
-              browser. Node.JS is used to build server side fully functional
-              applications. It also has access to files and system which is
-              required to build those applications. This is written with
-              JavaScript but it works as a server-side language. It uses chrome
-              v8 engine to convert javascript code into machine code.
+              Node JS handle multiple request at the same time by one of it's main features, event loop. Event loop allows Node JS to run asynchronous functions. As it is normally single threaded, it handles one request at a time. but for asynchronous functions, it sets that asynchronous function aside from the call stack, and starts working on the next requests. This method allows node to do multiple tasks at the same time even though it is single threaded. 
             </p>
           </div>
         </div>

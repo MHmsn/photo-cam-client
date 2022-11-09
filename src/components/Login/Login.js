@@ -46,15 +46,15 @@ const Login = () => {
           .catch((e) => setError(e.message));
       };
   return (
-    <div className="my-5 flex flex-column items-center md: flex-row">
+    <div className="my-5 md:flex md:items-center">
       <div>
         <img
           src="https://img.freepik.com/free-vector/account-concept-illustration_114360-399.jpg?w=826&t=st=1667924782~exp=1667925382~hmac=5b8922ec805503e208a1fe35d1476c2f242311496ad97343172691ef46534c11"
           alt=""
-          
+          className="md:w-3/4"
         />
       </div>
-      <div className="mx-auto bg-black bg-opacity-80 p-20 rounded-xl text-white">
+      <div className=" bg-black bg-opacity-80 p-2 md:p-5 rounded-xl text-white md:w-3/4 lg:w-1/4">
         <form onSubmit={loginHandle}>
           <div className="my-4">
             <label htmlFor="inputEmail">Email</label>
@@ -63,7 +63,7 @@ const Login = () => {
               name="email"
               type="email"
               placeholder="Enter your Email"
-              className="p-2 rounded-lg w-full"
+              className="p-2 rounded-lg w-full text-black"
               required
             ></input>
           </div>
@@ -74,7 +74,7 @@ const Login = () => {
               name="password"
               type="password"
               placeholder="Enter your Password"
-              className="p-2 rounded-lg w-full"
+              className="p-2 rounded-lg w-full text-black"
               required
             ></input>
           </div>
