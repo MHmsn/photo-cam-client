@@ -6,7 +6,7 @@ const HomeSubscribe = () => {
     const handleSubscribe = event => {
       event.target.email.value = "";
         event.preventDefault();
-        toast.success(`Thank you for subscribing.`);
+        toast.success('Thank you for subscribing.');
         
       }
     return (

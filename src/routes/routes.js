@@ -1,6 +1,7 @@
 import Blogs from "../components/Blogs/Blogs";
 import Home from "../components/Home/Home";
 import Login from "../components/Login/Login";
+import Services from "../components/Services/Services";
 
 
 const { createBrowserRouter } = require("react-router-dom");
@@ -17,7 +18,7 @@ const router = createBrowserRouter([
             },
             {
                 path: '/services',
-                element:<></>
+                element:<Services></Services>
             },
             {
                 path: '/blogs',
