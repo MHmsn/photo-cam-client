@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { AllContext } from "../contexts/AllContextProvider";
+import logo from "../../src/Cam.png"
 
 const Header = () => {
   const {user, logOut} = useContext(AllContext);
@@ -45,7 +46,7 @@ const Header = () => {
               {user?<li><NavLink to='/reviews'>My Reviews</NavLink></li>:<></>}
             </ul>
           </div>
-          <Link to='/' className="btn btn-ghost normal-case text-xl">daisyUI</Link>
+          <Link to='/' className="btn btn-ghost normal-case text-xl"><img src={logo} className="max-h-full" alt=""/>PhotoCam</Link>
         </div>
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal p-0">
