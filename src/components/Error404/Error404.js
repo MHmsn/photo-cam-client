@@ -1,9 +1,12 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Link, useRouteError } from 'react-router-dom';
 
 const Error404 = () => {
     let error = useRouteError();
     console.error(error);
+    useEffect(() => {
+        document.title = "Error";
+      }, []);
     return (
         <div className='h-screen'>
             <div className='pt-32'>

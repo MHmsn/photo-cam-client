@@ -4,7 +4,7 @@ import React, { useEffect } from "react";
 
 const Blogs = () => {
   useEffect(() => {
-    document.title = "blogs - Photo Cam";
+    document.title = "Blogs - Photo Cam";
   }, []);
   return (
     <div>

@@ -3,15 +3,16 @@ import {  FaGoogle } from "react-icons/fa";
 import { Link, useNavigate, useLocation } from 'react-router-dom';
 import { GoogleAuthProvider } from 'firebase/auth';
 import { AllContext } from "../../contexts/AllContextProvider";
-
+import { ClipLoader } from "react-spinners";
 
 const Login = () => {
-  const { signIn, providerLogin } = useContext(AllContext);
+  const { login, providerLogin } = useContext(AllContext);
   const navigate = useNavigate();
   const location = useLocation();
   const from = location.state?.from?.pathname || "/";
   const googleProvider = new GoogleAuthProvider();
   const [error, setError] = useState(null);
+  const [loading, setLoading] = useState(false);
 
   useEffect( () => {
     document.title = "Login - Photo Cam";
@@ -19,34 +20,48 @@ const Login = () => {
 
     const loginHandle = (event) => {
         event.preventDefault();
+        setLoading(true);
         const form = event.target;
         const email = form.email.value;
         const password = form.password.value;
-        signIn(email, password)
+        login(email, password)
           .then((result) => {
             const user = result.user;
             console.log(user);
             form.reset();
             navigate(from, { replace: true });
+            setLoading(false);
           })
           .catch((e) => {
             setError(e.message);
+            setLoading(false);
             form.reset();
           });
       };
       const googleHandle = (event) => {
         event.preventDefault();
-    
+        setLoading(true);
         providerLogin(googleProvider)
           .then((result) => {
             const user = result.user;
             console.log(user);
             navigate(from, { replace: true });
+            setLoading(false);
           })
-          .catch((e) => setError(e.message));
+          .catch((e) => {
+            setError(e.message)
+            setLoading(false);
+          });
       };
+
+
   return (
-    <div className="my-5 md:flex md:items-center">
+    <div>
+    <div className={loading?'block':'hidden'}>
+      <ClipLoader color="red" />
+      </div>
+
+      <div className="my-5 md:flex md:items-center">
       <div>
         <img
           src="https://img.freepik.com/free-vector/account-concept-illustration_114360-399.jpg?w=826&t=st=1667924782~exp=1667925382~hmac=5b8922ec805503e208a1fe35d1476c2f242311496ad97343172691ef46534c11"
@@ -102,6 +117,7 @@ const Login = () => {
           </div>
         </form>
       </div>
+    </div>
     </div>
   );
 };

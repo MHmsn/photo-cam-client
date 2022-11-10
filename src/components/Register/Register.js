@@ -1,14 +1,21 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { AllContext } from "../../contexts/AllContextProvider";
+import { ClipLoader } from "react-spinners";
 
 const Register = () => {
   const { createUser, updateUserProfile } = useContext(AllContext);
   const navigate = useNavigate();
   const [error, setError] = useState(null);
+  const [loading, setLoading] = useState(false);
+
+  useEffect(() => {
+    document.title = "Register - Photo Cam";
+  }, []);
 
   const registerHandle = (event) => {
     event.preventDefault();
+    setLoading(true);
     const form = event.target;
     const name = form.name.value;
     const photoURL = form.photoURL.value;
@@ -18,13 +25,19 @@ const Register = () => {
       .then(() => {
         updateUserProfile({ displayName: name, photoURL: photoURL });
         navigate("/");
+        setLoading(false);
       })
       .catch((err) => {
         setError(err.message);
+        setLoading(false);
       });
   };
   return (
-    <div className="my-5 md:flex md:items-center">
+    <div>
+    <div className={loading?'block':'hidden'}>
+      <ClipLoader color="red" />
+      </div>
+        <div className="my-5 md:flex md:items-center">
       <div>
         <img
           src="https://img.freepik.com/free-vector/account-concept-illustration_114360-399.jpg?w=826&t=st=1667924782~exp=1667925382~hmac=5b8922ec805503e208a1fe35d1476c2f242311496ad97343172691ef46534c11"
@@ -93,6 +106,7 @@ const Register = () => {
           </div>
         </form>
       </div>
+    </div>
     </div>
   );
 };

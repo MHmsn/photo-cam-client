@@ -1,13 +1,14 @@
 import { React, useEffect, useState } from "react";
 import { ClipLoader } from "react-spinners";
 import ServiceCard from "../ServiceCard/ServiceCard";
-import 'react-photo-view/dist/react-photo-view.css';
 import { PhotoProvider } from "react-photo-view";
 
 const Services = () => {
     const [loading, setLoading] = useState(false);
     const [services, setServices] = useState([]);
     useEffect(() => {
+        document.title = "Services - Photo Cam";
+      
         setLoading(true);
         fetch('http://localhost:5000/services')
         .then(res => res.json())
