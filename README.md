@@ -1,3 +1,24 @@
+
+# Website Name
+
+PhotoCam
+
+## Live Site
+https://photo-cam.web.app/
+
+# Features and Functionalities
+
+### `3 different login systems, Email-Password, google`
+### `Private protected routes`
+### `Registering and account creation systems`
+### `Responsive for Mobile and Desktop`
+
+
+# Frameworks and Libraries
+
+React.JS , Tailwind(DaisyUI), React-icons, Firebase, React hot toasts etc 
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
