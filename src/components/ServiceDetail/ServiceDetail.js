@@ -29,7 +29,9 @@ const ServiceDetail = () => {
             <h2 className='text-2xl my-10'>{details}</h2>
             {user?.uid? <CommentBox serviceId={_id}/>:<><p className='my-10'>To add reviews, Please <Link to='/login'>Login</Link></p></>}
 
+            <div>
             {reviews.map(review => <ReviewCard key={review._id} review={review}></ReviewCard>)}
+            </div>
             
         </div>
     );
