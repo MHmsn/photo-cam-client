@@ -10,7 +10,7 @@ const MyReviews = () => {
     document.title = "My Reviews - Photo Cam";
   }, []);
   useEffect(() => {
-    fetch(`http://localhost:5000/myreviews/${user.uid}`)
+    fetch(`https://service-server-seven.vercel.app/myreviews/${user.uid}`)
       .then((res) => res.json())
       .then((data) => setReviews(data));
     //   if(loading){
@@ -22,10 +22,10 @@ const MyReviews = () => {
       }
   return (
     <div className="min-h-screen">
-      <h2 className="text-3xl my-10">All of your Reviews</h2>
+      {reviews.length === 0 ? <h2 className="text-3xl my-10">No Reviews were added</h2>:<h2 className="text-3xl my-10">All of your Reviews</h2>}
       <div>
       {reviews.map((review) => 
-          <MyReviewCard review={review} reviews={reviews} setReviews={setReviews}></MyReviewCard>
+          <MyReviewCard key={review._id} review={review} reviews={reviews} setReviews={setReviews}></MyReviewCard>
       )}
       </div>
     </div>

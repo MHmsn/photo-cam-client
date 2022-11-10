@@ -10,7 +10,7 @@ const Services = () => {
         document.title = "Services - Photo Cam";
       
         setLoading(true);
-        fetch('http://localhost:5000/services')
+        fetch('https://service-server-seven.vercel.app/services')
         .then(res => res.json())
         .then(data => {
             setServices(data);

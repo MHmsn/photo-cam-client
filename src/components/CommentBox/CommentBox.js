@@ -2,13 +2,17 @@ import React, { useContext } from "react";
 import toast from "react-hot-toast";
 import { AllContext } from "../../contexts/AllContextProvider";
 
-const CommentBox = ({serviceId}) => {
+const CommentBox = ({serviceId, reviews, setReviews}) => {
   const { user } = useContext(AllContext);
   const { displayName, uid, photoURL } = user;
+
+  //comment handle
+
   const commentHandle = (event) => {
     event.preventDefault();
     const comment = event.target.comment.value;
-    const reviewDate = new Date();
+    const rvwDate = new Date();
+    const reviewDate = JSON.parse(JSON.stringify(rvwDate));  //to get the accurate string date
     const review = {
         serviceId,
       reviewerName: displayName,
@@ -18,7 +22,7 @@ const CommentBox = ({serviceId}) => {
       reviewDate,
     };
     
-    fetch("http://localhost:5000/addreview", {
+    fetch("https://service-server-seven.vercel.app/addreview", {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -27,13 +31,17 @@ const CommentBox = ({serviceId}) => {
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
         if (data.acknowledged) {
           toast.success("Review Added");
           event.target.reset();
         }
       })
+      .then(()=>{
+        const newReviewsList = [...reviews, review];
+        setReviews(newReviewsList);
+      })
       .catch((e) => console.error(e));
+      
   };
   return (
     <div>
@@ -44,7 +52,7 @@ const CommentBox = ({serviceId}) => {
           cols="200"
           name="comment"
         />
-        <button className="btn btn-primary ml-5">Review</button>
+        <button className="btn btn-primary ml-5" type="submit">Review</button>
       </form>
     </div>
   );

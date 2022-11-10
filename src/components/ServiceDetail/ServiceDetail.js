@@ -9,14 +9,19 @@ const ServiceDetail = () => {
     const {user} = useContext(AllContext);
     const [reviews, setReviews] = useState([]);
     
-    
+    reviews.sort(function(a,b){
+        // Turn your strings into dates, and then subtract them
+        // to get a value that is either negative, positive, or zero.
+        return new Date(a.date) - new Date(b.date);
+      });
+      console.log(reviews);
     useEffect(() => {
         document.title = name;
     },[name])
     
     
     useEffect(() => {
-        fetch(`http://localhost:5000/reviews/${_id}`)
+        fetch(`https://service-server-seven.vercel.app/reviews/${_id}`)
         .then(res => res.json())
         .then(data => setReviews(data));
     },[_id])
@@ -27,7 +32,7 @@ const ServiceDetail = () => {
             <img src={img} className='lg:w-3/4 rounded-xl mx-auto mb-10' alt=''/>
             <p className='text-start text-3xl font-bold my-10'> Price: {price}</p>
             <h2 className='text-2xl my-10'>{details}</h2>
-            {user?.uid? <CommentBox serviceId={_id}/>:<><p className='my-10'>To add reviews, Please <Link to='/login'>Login</Link></p></>}
+            {user?.uid? <CommentBox serviceId={_id} reviews={reviews} setReviews={setReviews}/>:<><p className='my-10'>To add reviews, Please <Link to='/login'>Login</Link></p></>}
 
             <div>
             {reviews.map(review => <ReviewCard key={review._id} review={review}></ReviewCard>)}

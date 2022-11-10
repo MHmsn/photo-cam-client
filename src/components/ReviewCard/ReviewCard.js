@@ -2,6 +2,7 @@ import React  from 'react';
 
 const ReviewCard = ({review}) => {
     const {reviewerImg, reviewerName, comment, reviewDate} = review;
+    
     return (
         <div className='text-start my-5 border-2 rounded-xl p-8'>
             <div className='flex flex-col md:flex-row md:justify-between'>
